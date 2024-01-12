@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload datoteke</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+Naložene nastavitve<br>
+<br>
+    <div style="display: flex;">
+        <table>
+            <thead>
+              <tr>
+                <th colspan="2">Uteži kriterijev</th>
+              </tr>
+            </thead>
+            <tbody>
+                <td>Tekst</td>
+                <td>Vrednosti</td>
+
+              {% for key, value in tempCW.items() %}
+              <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <table>
+            <thead>
+              <tr>
+                <th colspan="2">Fuzzy ocene</th>
+              </tr>
+            </thead>
+            <tbody>
+                <td>Tekst</td>
+                <td>Vrednosti</td>
+
+              {% for key, value in tempR.items() %}
+              <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+      </div>
+              <br>
+        <h2>Tu vas prosimo, da naložite datoteko z podatki.</h2>
+
+        Pripravljene datoteke data4x4x6.csv in data3x4x6.csv in data4x5x6.csv vsebujejo:<br>
+        <br>
+        Matrika z utežmi pomembnosti kriterijev
+        <br><br>
+        Matrika z vsemi ocenami
+        <br>
+        <br>
+        Preračunali bomo število odločevalcev, kriterijev in alternativ
+        <br>
+        
+        <br>
+
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv" required>
+        <button type="submit">Naloži datoteko</button>
+    </form>
+</body>
+</html>

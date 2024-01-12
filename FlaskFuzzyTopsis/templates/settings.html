@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload datoteke</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Tu vas prosimo, da naložite datoteko z nastavitvami (nastavitve.csv).</h1>
+
+        <br>
+        <p>Pripravljena datoteka nastavitve.csv vsebuje:</p>
+        <p>Slovar z jezikovnimi spremenljivkami za uteži kriterijev</p>
+        <p>Slovar z jezikovnimi spremenljivkami za ocene</p>
+        <p></p>
+        
+        
+        <br>
+
+    <form method="POST" action="/settings" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv" required>
+        <button type="submit">Naloži datoteko</button>
+    </form>
+</body>
+</html>
